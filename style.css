@@ -202,4 +202,9 @@ Mobile
   section:not(.hero) { 
     padding: 60px 20px; 
   } 
+
+  .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 }
