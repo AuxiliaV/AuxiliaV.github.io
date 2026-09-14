@@ -1,0 +1,205 @@
+/* =========================
+General
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body { 
+  font-family: Arial, Helvetica, sans-serif; 
+  line-height: 1.6; 
+  background: #f8f9fa; 
+  color: #222; 
+}
+
+/* ========================= 
+Navigation 
+========================= */
+
+header { 
+  position: sticky; 
+  top: 0; 
+  z-index: 1000; 
+  background: #ffffff; 
+  border-bottom: 1px solid #e5e5e5; 
+}
+
+nav { 
+  max-width: 1100px; 
+  margin: auto; 
+  padding: 18px 25px; 
+  
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.logo { 
+  font-size: 24px; 
+  font-weight: bold; 
+}
+
+nav ul { 
+  list-style: none; 
+  
+  display: flex; 
+  gap: 25px; 
+}
+
+nav ul li a { 
+  text-decoration: none; 
+  color: #333; 
+  font-size: 15px;
+}
+
+nav ul li a:hover { 
+  color: #0066cc; 
+}
+
+/* ========================= 
+Hero Section 
+========================= */
+
+.hero { 
+  min-height: 85vh; 
+  
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  
+  text-align: center; 
+  
+  padding: 60px 20px; 
+}
+
+.hero-content { 
+  max-width: 750px; 
+}
+
+.intro { 
+  font-size: 18px; 
+  margin-bottom: 10px; 
+}
+
+.hero h1 { 
+  font-size: 60px; 
+  margin-bottom: 10px; 
+}
+
+.hero h2 { 
+  font-size: 30px; 
+  font-weight: 500; 
+  margin-bottom: 20px; 
+}
+
+.hero-content > p:not(.intro) { 
+  font-size: 18px; 
+  color: #555; 
+  max-width: 650px; 
+  margin: 0 auto 30px; 
+}
+
+/* ========================= 
+Buttons 
+========================= */
+
+.hero-buttons { 
+  display: flex; 
+  justify-content: center; 
+  gap: 15px; 
+  flex-wrap: wrap; 
+}
+
+.btn { 
+  display: inline-block; 
+  
+  padding: 12px 24px; 
+  
+  background: #0066cc; 
+  color: white; 
+  
+  text-decoration: none; 
+  
+  border-radius: 6px; 
+  
+  transition: 0.3s;
+}
+
+.btn:hover { 
+  opacity: 0.85;
+} 
+
+.btn.secondary { 
+  background: #222; 
+}
+
+/* ========================= 
+Sections
+========================= */
+
+section:not(.hero) { 
+  max-width: 1100px; 
+  margin: auto; 
+  
+  padding: 90px 25px; 
+  
+  min-height: 300px; 
+} 
+
+section:not(.hero) h2 { 
+  font-size: 32px; 
+  margin-bottom: 20px; 
+}
+
+/* ========================= 
+Footer 
+========================= */
+
+footer { 
+  text-align: center; 
+  
+  padding: 25px; 
+  
+  background: #222; 
+  color: white; 
+  
+  font-size: 14px; 
+}
+
+/* ========================= 
+Mobile 
+========================= */
+
+@media (max-width: 768px) { 
+  nav { 
+    flex-direction: column; 
+    gap: 15px; 
+  } 
+  
+  nav ul { 
+    gap: 12px; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+  }
+
+.hero h1 { 
+  font-size: 42px;
+} 
+  .hero h2 { 
+    font-size: 24px; 
+  }
+
+.hero-content > p:not(.intro) { 
+  font-size: 16px;
+} 
+  
+  section:not(.hero) { 
+    padding: 60px 20px; 
+  } 
+}
