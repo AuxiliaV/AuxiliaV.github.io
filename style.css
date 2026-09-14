@@ -176,7 +176,7 @@ footer {
 About Section 
 ========================= */ 
 
-.about-content { 
+/* .about-content { 
   display: grid; 
   grid-template-columns: 2fr 1fr; 
   gap: 50px; 
@@ -211,6 +211,55 @@ About Section
 
 .about-focus li { 
   padding: 10px 0; 
+  border-bottom: 1px solid #eeeeee; 
+} 
+
+.about-focus li:last-child { 
+  border-bottom: none; 
+}
+/*
+
+/* 
+========================= About Section ========================= */ 
+.about-content { 
+  display: grid; 
+  grid-template-columns: minmax(0, 1.8fr) minmax(260px, 1fr); 
+  gap: 60px; align-items: start;
+} 
+
+.about-text { 
+  max-width: 720px; 
+} 
+
+.about-text h3 {
+  font-size: 26px; 
+  margin-bottom: 22px; 
+} 
+
+.about-text p { 
+  margin-bottom: 20px; 
+  color: #555; 
+  line-height: 1.8; 
+} 
+
+.about-focus { 
+  background: #ffffff; 
+  padding: 30px; 
+  border-radius: 10px; 
+  border: 1px solid #e5e5e5; 
+} 
+
+.about-focus h3 { 
+  font-size: 21px; 
+  margin-bottom: 20px; 
+} 
+
+.about-focus ul { 
+  list-style: none; 
+} 
+
+.about-focus li { 
+  padding: 11px 0; 
   border-bottom: 1px solid #eeeeee; 
 } 
 
