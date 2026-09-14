@@ -264,6 +264,40 @@ Skills Section
 }
 
 /* ========================= 
+Services Section 
+========================= */
+
+.services-grid {
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 25px; 
+}
+
+.service-card { 
+  background: #ffffff; 
+  padding: 30px; 
+  border: 1px solid #e5e5e5; 
+  border-radius: 10px; 
+}
+
+.service-card h3 { 
+  font-size: 21px; 
+  margin-bottom: 15px; 
+}
+
+.service-card p { 
+  color: #555; 
+  line-height: 1.7; 
+  margin-bottom: 20px; 
+}
+
+.service-tools { 
+  font-size: 14px; 
+  color: #0066cc; 
+  font-weight: 600; 
+}
+
+/* ========================= 
 Mobile 
 ========================= */
 
@@ -300,6 +334,10 @@ Mobile
     }
 
   .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+   .services-grid {
         grid-template-columns: 1fr;
     }
 }
