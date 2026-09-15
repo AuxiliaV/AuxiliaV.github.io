@@ -315,6 +315,7 @@ Projects
     border-radius: 10px;
     overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
 }
 
 .project-card:hover {
@@ -382,10 +383,13 @@ Projects
     color: #0066cc;
     font-weight: 600;
     text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  transition: transform 0.2s ease;
 }
 
 .project-link:hover {
-    text-decoration: underline;
+    transform: translateX(4px);
 }
 
 /* ========================= 
