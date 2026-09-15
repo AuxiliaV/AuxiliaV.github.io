@@ -322,14 +322,6 @@ Projects
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.project-image {
-    width: 100%;
-    height: auto;
-    display: block; 
-  background: #f8f9fa;
-    border-bottom: 1px solid #e5e5e5;
-}
-
 .project-content {
     padding: 30px;
 }
