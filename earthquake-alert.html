@@ -1,1 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Earthquake Alert Prediction System | Auxilia V</title>
+
+    <link rel="stylesheet" href="earthquake-alert.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="case-nav">
+
+        <a href="index.html" class="back-link">
+            ← Back to Portfolio
+        </a>
+
+        <a
+            href="https://github.com/AuxiliaV/Earthquake-Alert-Prediction"
+            target="_blank"
+            class="github-button">
+            View on GitHub
+        </a>
+
+    </nav>
+
+
+    <!-- Hero -->
+    <header class="case-hero">
+
+        <p class="case-type">
+            MACHINE LEARNING · CLASSIFICATION
+        </p>
+
+        <h1>Earthquake Alert Prediction System</h1>
+
+        <p class="case-intro">
+            A machine learning classification project that predicts
+            earthquake alert categories — Green, Yellow, Orange,
+            and Red — based on earthquake characteristics.
+        </p>
+
+        <div class="case-highlights">
+
+            <div>
+                <strong>84%</strong>
+                <span>Accuracy</span>
+            </div>
+
+            <div>
+                <strong>Decision Tree</strong>
+                <span>Final Model</span>
+            </div>
+
+            <div>
+                <strong>4</strong>
+                <span>Alert Categories</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="case-container">
+
+
+        <!-- Project Overview -->
+        <section class="case-section">
+
+            <h2>Project Overview</h2>
+
+            <p>
+                The objective of this project was to develop a machine
+                learning classification model capable of predicting
+                earthquake alert categories from earthquake-related
+                characteristics.
+            </p>
+
+            <p>
+                The project covers the complete machine learning workflow,
+                including data preprocessing, exploratory data analysis,
+                feature selection, model comparison, model creation,
+                evaluation, and prediction.
+            </p>
+
+        </section>
+
+
+        <!-- Objective -->
+        <section class="case-section">
+
+            <h2>Objective</h2>
+
+            <p>
+                To build a classification model that can predict the
+                appropriate earthquake alert category:
+            </p>
+
+            <div class="alert-categories">
+
+                <div>
+                    <strong>Green</strong>
+                    <span>Lower alert level</span>
+                </div>
+
+                <div>
+                    <strong>Yellow</strong>
+                    <span>Moderate alert level</span>
+                </div>
+
+                <div>
+                    <strong>Orange</strong>
+                    <span>Higher alert level</span>
+                </div>
+
+                <div>
+                    <strong>Red</strong>
+                    <span>Highest alert level</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Dataset -->
+        <section class="case-section">
+
+            <h2>Dataset</h2>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <strong>782</strong>
+                    <span>Records</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>19</strong>
+                    <span>Columns</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>2001–2023</strong>
+                    <span>Time Period</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Kaggle</strong>
+                    <span>Data Source</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Data Preprocessing -->
+        <section class="case-section">
+
+            <h2>Data Preprocessing & EDA</h2>
+
+            <p>
+                The dataset was examined and prepared before model
+                development. Unnecessary columns were removed and
+                exploratory analysis was performed to understand the
+                characteristics and relationships within the data.
+            </p>
+
+            <p>
+                Outliers were examined but were not automatically removed,
+                since variations in earthquake characteristics can represent
+                naturally occurring differences that may be important for
+                alert prediction.
+            </p>
+
+        </section>
+
+
+        <!-- Feature Selection -->
+        <section class="case-section">
+
+            <h2>Feature Selection</h2>
+
+            <p>
+                Multiple feature selection techniques were explored to
+                identify useful features for the classification task.
+            </p>
+
+            <div class="technique-list">
+
+                <span>SelectKBest</span>
+                <span>Permutation Importance</span>
+                <span>Forward Selection</span>
+                <span>Backward Elimination</span>
+
+            </div>
+
+            <p class="highlight-text">
+                The final prediction workflow uses earthquake
+                characteristics including Magnitude, Significance,
+                and Depth.
+            </p>
+
+        </section>
+
+
+        <!-- Models -->
+        <section class="case-section">
+
+            <h2>Models Evaluated</h2>
+
+            <p>
+                Multiple classification algorithms were evaluated and
+                compared during the model identification stage.
+            </p>
+
+            <div class="technique-list">
+
+                <span>Logistic Regression</span>
+                <span>SVM</span>
+                <span>Decision Tree</span>
+                <span>Random Forest</span>
+                <span>KNN</span>
+                <span>Gaussian Naive Bayes</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Final Model -->
+        <section class="case-section result-section">
+
+            <h2>Final Model</h2>
+
+            <div class="final-model">
+
+                <div>
+                    <span>Selected Model</span>
+                    <strong>Decision Tree Classifier</strong>
+                </div>
+
+                <div>
+                    <span>Accuracy</span>
+                    <strong>84%</strong>
+                </div>
+
+            </div>
+
+            <p>
+                The Decision Tree Classifier was selected as the final
+                model after model comparison and was further tuned using
+                hyperparameters.
+            </p>
+
+        </section>
+
+
+        <!-- Evaluation -->
+        <section class="case-section">
+
+            <h2>Model Evaluation</h2>
+
+            <p>
+                Model performance was evaluated using classification
+                report and a confusion matrix.
+            </p>
+
+            <div class="case-image">
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Earthquake-Alert-Prediction/main/screenshots/confusion-matrix.png"
+                    alt="Confusion matrix for the earthquake alert prediction model">
+            </div>
+
+            <div class="case-image">
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Earthquake-Alert-Prediction/main/screenshots/classification-report.png"
+                    alt="Classification report for the earthquake alert prediction model">
+            </div>
+
+        </section>
+
+
+        <!-- Prediction -->
+        <section class="case-section">
+
+            <h2>Prediction Workflow</h2>
+
+            <p>
+                The prediction workflow uses selected earthquake
+                characteristics as inputs and produces one of the four
+                alert categories.
+            </p>
+
+            <div class="prediction-images">
+
+                <div class="case-image">
+                    <img
+                        src="https://raw.githubusercontent.com/AuxiliaV/Earthquake-Alert-Prediction/main/screenshots/prediction-interface.png"
+                        alt="Earthquake alert prediction interface">
+                </div>
+
+                <div class="case-image">
+                    <img
+                        src="https://raw.githubusercontent.com/AuxiliaV/Earthquake-Alert-Prediction/main/screenshots/prediction-result.png"
+                        alt="Earthquake alert prediction result">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Technologies -->
+        <section class="case-section">
+
+            <h2>Technologies Used</h2>
+
+            <div class="technique-list">
+
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>NumPy</span>
+                <span>Matplotlib</span>
+                <span>Seaborn</span>
+                <span>Scikit-learn</span>
+                <span>mlxtend</span>
+                <span>Jupyter Notebook</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Project Workflow -->
+        <section class="case-section">
+
+            <h2>Project Workflow</h2>
+
+            <div class="workflow">
+
+                <div>01<br><span>Data Preprocessing & EDA</span></div>
+
+                <div>02<br><span>Feature Selection</span></div>
+
+                <div>03<br><span>Model Identification</span></div>
+
+                <div>04<br><span>Model Creation</span></div>
+
+                <div>05<br><span>Model Evaluation</span></div>
+
+                <div>06<br><span>Prediction</span></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Key Takeaway -->
+        <section class="case-section takeaway">
+
+            <h2>Key Takeaway</h2>
+
+            <p>
+                This project provided hands-on experience in developing
+                an end-to-end machine learning classification workflow,
+                from data preparation and feature selection through
+                model evaluation and prediction.
+            </p>
+
+        </section>
+
+
+        <!-- GitHub -->
+        <section class="case-cta">
+
+            <h2>Explore the Project</h2>
+
+            <p>
+                View the complete notebooks, model, project documentation,
+                and supporting files on GitHub.
+            </p>
+
+            <a
+                href="https://github.com/AuxiliaV/Earthquake-Alert-Prediction"
+                target="_blank"
+                class="github-button large">
+                View Project on GitHub →
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Auxilia V. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
