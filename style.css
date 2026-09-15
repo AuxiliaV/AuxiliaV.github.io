@@ -173,7 +173,9 @@ footer {
 }
 
 /* 
-========================= About Section ========================= */ 
+========================= 
+About Section 
+========================= */ 
 .about-content { 
   display: grid; 
   grid-template-columns: minmax(0, 1.8fr) minmax(260px, 1fr); 
@@ -298,6 +300,89 @@ Services Section
 }
 
 /* ========================= 
+Projects
+========================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.project-content {
+    padding: 30px;
+}
+
+.project-type {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0066cc;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.project-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.project-card p:not(.project-type) {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.project-tech span {
+    background: #f1f4f8;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.project-result {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-left: 3px solid #0066cc;
+    margin-bottom: 25px;
+}
+
+.project-result strong {
+    font-size: 18px;
+}
+
+.project-result span {
+    color: #666;
+    font-size: 14px;
+}
+
+.project-link {
+    color: #0066cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* ========================= 
 Mobile 
 ========================= */
 
@@ -340,4 +425,8 @@ Mobile
    .services-grid {
         grid-template-columns: 1fr;
     }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+}
 }
