@@ -383,6 +383,53 @@ Projects
 }
 
 /* ========================= 
+Contact
+========================= */
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.contact-text {
+    max-width: 650px;
+}
+
+.contact-text h3 {
+    font-size: 26px;
+    margin-bottom: 18px;
+}
+
+.contact-text p {
+    color: #555;
+    line-height: 1.8;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-links a {
+    display: block;
+    padding: 15px 20px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    color: #0066cc;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+}
+
+.contact-links a:hover {
+    background: #f1f4f8;
+}
+
+/* ========================= 
 Mobile 
 ========================= */
 
@@ -428,5 +475,10 @@ Mobile
 
   .projects-grid {
     grid-template-columns: 1fr;
-}
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
