@@ -513,9 +513,14 @@ Mobile
 
 /* Email Popup */
 
+.email-action {
+    position: relative;
+    width: 100%;
+}
+
 .email-popup {
     display: none;
-    position: relative;
+    position: absolute;
     margin-top: 15px;
     padding: 20px;
     max-width: 350px;
@@ -524,6 +529,10 @@ Mobile
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     text-align: left;
+  top: calc(100% + 15px);
+    left: 0;
+    z-index: 10;
+    margin-top: 0;
 }
 
 .email-popup strong {
