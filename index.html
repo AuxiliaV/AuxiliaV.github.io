@@ -397,5 +397,27 @@
     <footer> 
       <p>© 2026 Auxilia V. All rights reserved.</p> 
     </footer> 
+
+    <script>
+    function copyEmail() {
+        const email = "auxilia.2094@gmail.com";
+
+        navigator.clipboard.writeText(email).then(() => {
+            document.getElementById("copied-email").textContent = email;
+            document.getElementById("email-popup").style.display = "block";
+
+            setTimeout(() => {
+                closeEmailPopup();
+            }, 180000);
+        }).catch(() => {
+            alert("Please copy my email manually: " + email);
+        });
+    }
+
+    function closeEmailPopup() {
+        document.getElementById("email-popup").style.display = "none";
+    }
+</script>
+    
   </body> 
 </html>
