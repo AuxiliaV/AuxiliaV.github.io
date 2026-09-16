@@ -424,7 +424,7 @@ Contact
     gap: 15px;
 }
 
-.contact-links a {
+/*.contact-links a {
     display: block;
     padding: 15px 20px;
     background: #fff;
@@ -434,6 +434,23 @@ Contact
     font-weight: 600;
     text-decoration: none;
     text-align: center;
+}*/
+
+.contact-links a,
+.contact-button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    color: #0066cc;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .contact-links a:hover {
