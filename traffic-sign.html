@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Traffic Sign Detection & Classification | Auxilia V</title>
+
+    <link rel="stylesheet" href="traffic-sign.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="case-study-nav">
+        <a href="index.html">← Back to Portfolio</a>
+
+        <a
+            href="https://github.com/AuxiliaV/Traffic-Sign-Detection-and-Classification"
+            target="_blank"
+            class="github-button">
+            View on GitHub
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="case-study-hero">
+
+        <p class="project-type">
+            COMPUTER VISION · OBJECT DETECTION
+        </p>
+
+        <h1>Traffic Sign Detection & Classification</h1>
+
+        <p>
+            A computer vision project using a YOLO-based object detection
+            model to detect and classify traffic signs through a webcam.
+        </p>
+
+        <div class="case-study-highlights">
+
+            <div>
+                <strong>52</strong>
+                <span>Traffic Sign Classes</span>
+            </div>
+
+            <div>
+                <strong>YOLOv8s</strong>
+                <span>Detection Model</span>
+            </div>
+
+            <div>
+                <strong>100</strong>
+                <span>Training Epochs</span>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main class="case-study-container">
+
+        <!-- Project Overview -->
+        <section class="case-study-section">
+
+            <h2>Project Overview</h2>
+
+            <p>
+                This project focuses on detecting and classifying traffic signs
+                using a YOLO-based object detection approach.
+                The model was trained using an annotated traffic sign dataset
+                and tested through a real-time webcam demonstration.
+            </p>
+
+        </section>
+
+        <!-- Objective -->
+        <section class="case-study-section">
+
+            <h2>Objective</h2>
+
+            <p>
+                The objective was to develop a computer vision model capable
+                of identifying traffic signs from camera input and displaying
+                the detected sign category along with its bounding box.
+            </p>
+
+        </section>
+
+        <!-- Dataset and Annotation -->
+        <section class="case-study-section">
+
+            <h2>Dataset & Annotation</h2>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <strong>Dataset Source</strong>
+                    <span>Kaggle</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Number of Classes</strong>
+                    <span>52 Traffic Sign Classes</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Annotation Tool</strong>
+                    <span>Roboflow</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Annotation Format</strong>
+                    <span>YOLO-Compatible Format</span>
+                </div>
+
+            </div>
+
+            <p>
+                The dataset was downloaded from Kaggle. Roboflow was used
+                to annotate the images and prepare the dataset in a format
+                suitable for YOLO model training.
+            </p>
+
+        </section>
+
+        <!-- Model Training -->
+        <section class="case-study-section">
+
+            <h2>Model Training</h2>
+
+            <p>
+                A YOLOv8s model was trained using the annotated traffic sign
+                dataset.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <strong>Model</strong>
+                    <span>YOLOv8s</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Training Epochs</strong>
+                    <span>100</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Image Size</strong>
+                    <span>640 × 640</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Batch Size</strong>
+                    <span>16</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Training Device</strong>
+                    <span>CPU</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Detection Workflow -->
+        <section class="case-study-section">
+
+            <h2>Webcam Detection Workflow</h2>
+
+            <ol class="workflow-list">
+
+                <li>Load the trained YOLO model.</li>
+
+                <li>Open the laptop webcam using OpenCV.</li>
+
+                <li>Display traffic sign images using a mobile phone.</li>
+
+                <li>Capture the images through the laptop camera.</li>
+
+                <li>Detect traffic signs using the trained model.</li>
+
+                <li>Display bounding boxes, labels, and confidence values.</li>
+
+            </ol>
+
+            <p>
+                The demonstration used traffic sign images displayed on a
+                mobile phone. The laptop camera captured these images,
+                allowing the trained model to perform detection and
+                classification.
+            </p>
+
+        </section>
+
+        <!-- Evaluation -->
+        <section class="case-study-section">
+
+            <h2>Model Evaluation</h2>
+
+            <p>
+                The following metrics were recorded during model training.
+                They are included to represent the observed training results
+                without overstating the model's performance.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <strong>Precision</strong>
+                    <span>0.23755</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Recall</strong>
+                    <span>0.22618</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>mAP50</strong>
+                    <span>0.19082</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>mAP50-95</strong>
+                    <span>0.05566</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Demo Screenshots -->
+        <section class="case-study-section">
+
+            <h2>Detection Demonstration</h2>
+
+            <p>
+                The following screenshots demonstrate traffic sign detection
+                using the laptop webcam.
+            </p>
+
+            <div class="demo-gallery">
+
+                <!-- Screenshots will be added after uploading them -->
+                <p>
+                    Demo screenshots will be displayed here.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Technologies -->
+        <section class="case-study-section">
+
+            <h2>Technologies Used</h2>
+
+            <div class="technology-tags">
+
+                <span>Python</span>
+                <span>YOLOv8</span>
+                <span>OpenCV</span>
+                <span>Roboflow</span>
+                <span>Computer Vision</span>
+                <span>Deep Learning</span>
+
+            </div>
+
+        </section>
+
+        <!-- Limitations -->
+        <section class="case-study-section">
+
+            <h2>Limitations & Future Improvements</h2>
+
+            <p>
+                The recorded evaluation metrics indicate that the model
+                requires further improvement for more reliable detection
+                across different traffic sign appearances and conditions.
+            </p>
+
+            <ul>
+                <li>Improve dataset diversity and image quality.</li>
+                <li>Increase the number of training examples.</li>
+                <li>Experiment with model and training parameters.</li>
+                <li>Evaluate detection performance under varied conditions.</li>
+            </ul>
+
+        </section>
+
+        <!-- Key Takeaway -->
+        <section class="case-study-section takeaway">
+
+            <h2>Key Takeaway</h2>
+
+            <p>
+                This project provided practical experience in dataset
+                annotation, YOLO model training, computer vision, and
+                webcam-based object detection.
+            </p>
+
+        </section>
+
+        <!-- GitHub CTA -->
+        <section class="case-study-cta">
+
+            <h2>Explore the Project</h2>
+
+            <p>
+                View the source code, training files, and project
+                implementation on GitHub.
+            </p>
+
+            <a
+                href="https://github.com/AuxiliaV/Traffic-Sign-Detection-and-Classification"
+                target="_blank"
+                class="github-button">
+                View GitHub Repository →
+            </a>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Auxilia V. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
