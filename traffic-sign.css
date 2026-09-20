@@ -100,13 +100,15 @@ body {
     margin-bottom: 25px;
 }
 
-.case-study-hero p:not(.project-type) {
+.case-intro {
     max-width: 750px;
+
     margin: 0 auto 45px;
 
     color: #555;
+
     font-size: 18px;
-   line-height: 1.8;
+    line-height: 1.8;
 }
 
 /* ========================================
