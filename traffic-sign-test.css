@@ -307,8 +307,15 @@ body {
     font-size: 13px;
 }
 
-.case-section ul,
-.case-section li {
+.case-study-section ul,
+.case-study-section ol {
+    margin: 15px 0 15px 25px;
+    padding-left: 15px;
+
+    color: #555;
+}
+
+.case-study-section li {
     margin-bottom: 8px;
 }
 
