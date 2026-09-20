@@ -50,9 +50,12 @@ body {
     padding: 10px 18px;
 
     background: #0066cc;
-    color: #ffffff !important;
+    color: #fff !important;
 
     border-radius: 6px;
+   
+   text-decoration: none;
+    font-weight: 600;
 
     transition:
         background 0.3s ease,
@@ -364,6 +367,12 @@ code {
     margin: 0 auto 25px;
 }
 
+.github-button.large {
+    padding: 13px 25px;
+
+    font-size: 16px;
+}
+
 /* ========================================
    Footer
 ======================================== */
@@ -391,12 +400,13 @@ footer p {
 @media (max-width: 768px) {
 
     .case-study-nav {
-        padding: 18px 5%;
+padding: 15px 20px;
+
         gap: 15px;
     }
 
     .case-study-container {
-        padding: 35px 18px;
+         padding: 10px 20px 60px;
     }
 
     .case-study-hero {
@@ -404,7 +414,7 @@ footer p {
     }
 
     .case-study-hero h1 {
-        font-size: 32px;
+        font-size: 36px;
     }
 
     .case-study-hero p:not(.project-type) {
