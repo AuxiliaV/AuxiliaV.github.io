@@ -212,7 +212,7 @@ body {
 }
 
 
-.data-grid div{
+.data-card div{
 
     background: #f1f4f8;
 
@@ -224,7 +224,7 @@ body {
 
 }
 
-.data-grid strong{
+.data-card strong{
 
     display: block;
 
@@ -234,7 +234,7 @@ body {
 
 }
 
-.data-grid span{
+.data-card span{
 
     color: #666;
     font-size: 14px;
