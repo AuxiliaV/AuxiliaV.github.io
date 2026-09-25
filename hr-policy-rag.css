@@ -234,6 +234,13 @@ body {
 }
 
 .case-section ul,
+.case-section ol {
+    margin: 15px 0 15px 25px;
+    padding-left: 15px;
+
+    color: #555;
+}
+
 .case-section li {
     margin-bottom: 8px;
 }
