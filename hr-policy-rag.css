@@ -195,6 +195,53 @@ body {
 }
 
 
+/* ==============================
+   Data Cards
+   ============================== */
+
+.data-grid{
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    gap: 20px;
+}
+
+
+.data-grid div{
+
+    background: #f1f4f8;
+
+    padding: 20px 15px;
+
+    border-radius: 7px;
+
+    text-align: center;
+
+}
+
+.data-grid strong{
+
+    display: block;
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
+
+}
+
+.data-grid span{
+
+    color: #666;
+    font-size: 14px;
+
+}
+
+
 
 /* ==============================
    Information Cards
