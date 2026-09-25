@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HR Policy RAG Assistant | Auxilia V</title>
+
+    <link rel="stylesheet" href="hr-policy-rag.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="case-nav">
+
+        <a href="index.html" class="back-link">
+            ← Back to Portfolio
+        </a>
+
+        <a
+            href="https://github.com/AuxiliaV/HR-Policy-RAG-Assistant"
+            target="_blank"
+            class="github-button">
+            View on GitHub
+        </a>
+
+    </nav>
+
+
+    <!-- Hero -->
+    <header class="case-hero">
+
+        <p class="case-type">
+             GENERATIVE AI · RAG · LANGCHAIN
+        </p>
+
+        <h1>HR Policy RAG Assistant</h1>
+
+        <p class="case-intro">
+            A conversational Retrieval-Augmented Generation (RAG) assistant
+            that answers employee questions from sample Acme HR policy
+            documents with source-based citations.
+        </p>
+
+        <div class="case-highlights">
+
+            <div>
+                <strong>3</strong>
+                <span>Policy Documents</span>
+            </div>
+
+            <div>
+                <strong>FAISS</strong>
+                <span>Vector Database</span>
+            </div>
+
+            <div>
+                <strong>4</strong>
+                <span>Chunks Retrieved</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="case-container">
+
+
+        <!-- Project Overview -->
+        <section class="case-section">
+
+            <h2>Project Overview</h2>
+
+            <p>
+                The HR Policy RAG Assistant is a conversational question-answering
+                application designed to retrieve information from company policy
+                documents and generate concise answers with citations.
+            </p>
+
+            <p>
+                The project uses three sample HR policy documents created for a
+                fictional company, Acme Corp. Instead of relying only on the
+                language model's general knowledge, the assistant retrieves
+                relevant sections from the provided documents before generating
+                an answer.
+            </p>
+
+
+        </section>
+
+
+        <!-- Objective -->
+        <section class="case-section">
+
+            <h2>Objective</h2>
+
+            <p>
+                The objective was to build an end-to-end conversational RAG
+                application that could answer HR policy questions using
+                information from a controlled set of documents.
+            </p>
+
+            <ul>
+                <li>Retrieve relevant information from HR policy documents.</li>
+                <li>Generate concise answers based on retrieved content.</li>
+                <li>Include policy and page references with answers.</li>
+                <li>Support follow-up questions using conversation history.</li>
+                <li>Return a clear response when information is not available in the documents.</li>
+            </ul>
+
+        </section>
+
+
+        <!-- Policy Documents -->
+
+        <section class="case-section">
+
+            <h2>Policy Documents</h2>
+
+            <p>
+                The assistant works with three sample policy documents created
+                for the fictional Acme Corp environment.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <strong>Acme Leave Policy</strong>
+                    <span>
+                        Leave entitlement, sick leave, parental leave,
+                        bereavement leave and leave requests.
+                    </span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Acme Remote Work Policy</strong>
+                    <span>
+                        Hybrid and remote work eligibility, core hours,
+                        home-office support and remote work requirements.
+                    </span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Acme Travel & Expense Policy</strong>
+                    <span>
+                        Expense submission, approvals, travel allowances,
+                        mileage and reimbursement rules.
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="highlight-text">
+
+                <strong>Note:</strong>
+
+                <span>
+                    Acme Corp and the policy documents used in this project
+                    are fictional/sample data created for demonstration and
+                    learning purposes.
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Document Loading -->
+
+        <section class="case-section">
+
+            <h2>Document Loading & Preprocessing</h2>
+
+            <p>
+               The PDF policy documents are loaded using LangChain's
+                <strong>PyPDFLoader</strong>.
+                During preprocessing, the document metadata is enriched so
+                that retrieved information can later be associated with the
+                original policy and page number.
+            </p>
+
+            <h3>
+                Cleaning
+            </h3>
+
+            <ul>
+                <li>Removed unwanted footer content.</li>
+                <li>Removed internal-use-only footer text.</li>
+                <li>Cleaned unnecessary line formatting.</li>
+                <li>Added policy name as source metadata.</li>
+                <li>Added page number metadata for citations.</li>
+            </ul>
+
+
+        </section>
+
+        <!-- Chunking -->
+        <section class="case-section">
+
+            <h2>
+                Document Chunking
+            </h2>
+
+            <p>
+                After preprocessing, the documents are split into smaller
+                sections using LangChain's
+                <strong>RecursiveCharacterTextSplitter</strong>.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <strong>Chunk Size</strong>
+                    <span>600 characters</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Chunk Overlap</strong>
+                    <span>100 characters</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Splitter</strong>
+                    <span>RecursiveCharacterTextSplitter</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Metadata</strong>
+                    <span>Policy name + page number</span>
+                </div>
+
+            </div>
+
+            <p>
+                The metadata is copied to the resulting chunks, allowing
+                retrieved chunks to retain their source information.
+            </p>
+
+        </section>
+
+
+        <!-- Embeddings -->
+        <section class="case-section">
+
+            <h2>
+                Embeddings & Vector Database
+            </h2>
+
+            <p>
+                The document chunks are converted into vector representations
+                using OpenAI's
+                <strong>text-embedding-3-small</strong> embedding model.
+            </p>
+
+            <p>
+                These embeddings are stored in a
+                <strong>FAISS</strong> vector store. When a user asks a
+                question, the application performs semantic retrieval to find
+                relevant document chunks.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <strong>Embedding Model</strong>
+                    <span>text-embedding-3-small</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Vector Store</strong>
+                    <span>FAISS</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Retriever</strong>
+                    <span>Similarity-based retrieval</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Retrieved Chunks</strong>
+                    <span>Top 4</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RAG Workflow -->
+        <section class="case-section">
+
+            <h2>
+                RAG Question-Answering Workflow
+            </h2>
+
+            <p>
+                The assistant follows a Retrieval-Augmented Generation
+                workflow in which relevant policy content is retrieved before
+                the language model generates the answer.
+            </p>
+
+            <div class="rag-flow">
+
+                <div class="flow-step">
+                    <strong>User Question</strong>
+                    <span>Employee asks an HR policy question</span>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    <strong>Semantic Retrieval</strong>
+                    <span>Relevant chunks are retrieved from FAISS</span>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    <strong>Context Construction</strong>
+                    <span>Retrieved content is passed as context</span>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    <strong>ChatOpenAI</strong>
+                    <span>Generates an answer from the provided sources</span>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    <strong>Answer + Citation</strong>
+                    <span>Response includes policy and page reference</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LLM -->
+        <section class="case-section">
+
+            <h2>
+                Answer Generation
+            </h2>
+
+            <p>
+                Retrieved document chunks are combined into a context and
+                passed to a
+                <strong>ChatOpenAI</strong> model through a
+                <strong>ChatPromptTemplate</strong>.
+            </p>
+
+            <p>
+                The prompt instructs the assistant to answer using only the
+                provided sources, mention relevant conditions or exceptions,
+                keep the response short, and include the corresponding
+                policy citation.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <strong>LLM</strong>
+                    <span>gpt-4o-mini</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Temperature</strong>
+                    <span>0</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Prompt Framework</strong>
+                    <span>ChatPromptTemplate</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Response</strong>
+                    <span>Answer with source citation</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Citations -->
+        <section class="case-section">
+
+            <h2>
+                Citation-Based Responses
+            </h2>
+
+            <p>
+                Each retrieved document retains its policy name and page
+                metadata. This information is used to generate citations such
+                as: <strong>[Acme Leave Policy, p.2]</strong>
+            </p>
+
+
+            <p>
+                This makes the generated answer easier to trace back to the
+                relevant policy document.
+            </p>
+
+        </section>
+
+
+        <!-- Conversation -->
+        <section class="case-section">
+
+            <h2>
+                Conversational Follow-up Questions
+            </h2>
+
+            <p>
+                The application also supports follow-up questions. Previous
+                question-and-answer pairs are stored in the application's
+                chat history.
+            </p>
+
+            <p>
+                When a follow-up question depends on previous conversation
+                context, the latest question is rewritten into a standalone
+                question before retrieval.
+            </p>
+
+            <div class="rag-flow">
+
+                <div class="flow-step">
+                    <strong>Chat History</strong>
+                    <span>Previous questions and answers</span>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    <strong>Question Rewriting</strong>
+                    <span>Latest question becomes standalone</span>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    <strong>FAISS Retrieval</strong>
+                    <span>Relevant policy chunks are retrieved</span>
+                </div>
+
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-step">
+                    <strong>Answer Generation</strong>
+                    <span>Answer is generated with citation</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+        <!-- Validation / Demo -->
+        <section class="case-section">
+
+            <h2>Application Demo</h2>
+
+            <p>
+                The application was tested through a Gradio interface with
+                questions covering different areas of the sample HR policies.
+            </p>
+
+            <div class="case-image">
+                <img
+                    src="https://github.com/AuxiliaV/HR-Policy-RAG-Assistant/main/screenshot/hr-policy-leave-carryover.png"
+                    alt="Acme HR Assistant answering an annual leave carryover question">
+
+                <p>
+                    <strong>Leave Policy:</strong>
+                    The assistant retrieves the annual leave carryover
+                    rule and provides the corresponding policy citation.
+                </p>
+            </div>
+
+            <div class="case-image">
+                <img
+                    src="https://github.com/AuxiliaV/HR-Policy-RAG-Assistant/main/screenshot/hr-policy-remote-work.png"
+                    alt="Acme HR Assistant answering a hybrid work question">
+
+                <p>
+                    <strong>Remote Work Policy:</strong>
+                    The assistant identifies the minimum office days and
+                    the designated core in-office days.
+                </p>
+
+            </div>
+
+            <div class="case-image">
+                <img
+                    src="https://github.com/AuxiliaV/HR-Policy-RAG-Assistant/main/screenshot/hr-policy-internet.png"
+                    alt="Acme HR Assistant answering an internet allowance question">
+
+                <p>
+                    <strong>Policy Condition:</strong>
+                    The assistant distinguishes between hybrid and fully
+                    remote employee eligibility for the internet allowance.
+                </p>
+
+            </div>
+
+
+            <div class="case-image">
+                <img
+                    src="https://github.com/AuxiliaV/HR-Policy-RAG-Assistant/main/screenshot/hr-policy-no-answer.png"
+                    alt="Acme HR Assistant responding when information is unavailable">
+
+                <p>
+                    <strong>Unavailable Information:</strong>
+                    When the requested information is not contained in the
+                    provided documents, the assistant returns the configured
+                    fallback response.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- Gradio -->
+        <section class="case-section">
+
+            <h2>
+                User Interface
+            </h2>
+
+            <p>
+                A simple Gradio interface was created to provide a lightweight
+                way to interact with the RAG pipeline.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <strong>Framework</strong>
+                    <span>Gradio</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Input</strong>
+                    <span>Natural-language HR question</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Output</strong>
+                    <span>Generated answer with citation</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Application</strong>
+                    <span>Acme HR Assistant</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Technologies -->
+        <section class="case-section">
+
+            <h2>
+                Technologies Used
+            </h2>
+
+            <div class="technique-list">
+
+                <span>Python</span>
+                <span>LangChain</span>
+                <span>LangChain Community</span>
+                <span>OpenAI</span>
+                <span>FAISS</span>
+                <span>PyPDF</span>
+                <span>Gradio</span>
+                <span>RAG</span>
+                <span>Embeddings</span>
+                <span>LLM</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Project Workflow -->
+        <section class="case-section">
+
+            <h2>
+                End-to-End Workflow
+            </h2>
+
+            <div class="workflow-code">
+
+<pre>
+PDF Policy Documents
+        ↓
+PyPDFLoader
+        ↓
+Document Cleaning
+        ↓
+Source + Page Metadata
+        ↓
+RecursiveCharacterTextSplitter
+        ↓
+Chunk Size: 600
+Overlap: 100
+        ↓
+OpenAI Embeddings
+text-embedding-3-small
+        ↓
+FAISS Vector Store
+        ↓
+User Question
+        ↓
+Retrieve Top 4 Chunks
+        ↓
+ChatOpenAI
+        ↓
+Answer + Citation
+        ↓
+Gradio Interface
+</pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Limitations -->
+        <section class="case-section">
+
+            <h2>Limitations & Future Improvements</h2>
+
+            <p>
+                This project is a learning and portfolio implementation using
+                a small set of fictional policy documents. It demonstrates
+                the RAG workflow but is not intended to represent a production
+                HR system.
+            </p>
+
+            <h3>
+                Current Limitations
+            </h3>
+
+            <ul>
+
+                <li>
+                    The policy dataset is limited to three sample documents.
+                </li>
+
+                <li>
+                    The FAISS index is created when the RAG module starts.
+                </li>
+
+                <li>
+                    Conversation history is maintained in application memory.
+                </li>
+
+                <li>
+                    The application does not connect to a real HR management
+                    system or employee database.
+                </li>
+
+                <li>
+                    Authentication and role-based access control are not
+                    implemented.
+                </li>
+
+            </ul>
+
+
+            <h3>
+                Possible Future Improvements
+            </h3>
+
+            <ul>
+
+                <li>
+                    Add persistent vector-store storage and indexing.
+                </li>
+
+                <li>
+                    Add authentication and employee-specific access control.
+                </li>
+
+                <li>
+                    Connect the assistant to approved HR APIs or backend
+                    services.
+                </li>
+
+                <li>
+                    Add more HR policy documents and document management.
+                </li>
+
+                <li>
+                    Add evaluation datasets for retrieval and answer quality.
+                </li>
+
+                <li>
+                    Improve the user interface and conversation management.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- Key Takeaway -->
+        <section class="case-section takeaway">
+
+            <h2>Key Takeaway</h2>
+
+            <p>
+                This project provided practical experience in building an
+                end-to-end conversational RAG application, including PDF
+                processing, document chunking, embeddings, vector retrieval,
+                citation-aware answer generation, conversational question
+                rewriting, and Gradio-based application development.
+
+        </section>
+
+
+        <!-- GitHub -->
+        <section class="case-cta">
+
+            <h2>Explore the Project</h2>
+
+            <p>
+                View the complete notebooks, model, project documentation,
+                and supporting files on GitHub.
+            </p>
+
+            <a
+                href="https://github.com/AuxiliaV/HR-Policy-RAG-Assistant"
+                target="_blank"
+                class="github-button large">
+                View Project on GitHub →
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Auxilia V. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
