@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Support Triangle AI Agent | Auxilia V</title>
+
+    <link rel="stylesheet"
+          href="support-triangle.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav class="case-nav">
+
+        <a href="index.html"
+           class="back-link">
+            ← Back to Portfolio
+        </a>
+
+        <!-- Replace with the actual GitHub repository URL -->
+
+        <a href="https://github.com/AuxiliaV/Support-Triangle-AI-Agent"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="github-button">
+            View on GitHub
+        </a>
+
+    </nav>
+
+
+
+    <!-- Hero -->
+
+    <header class="case-hero">
+
+        <p class="case-type">
+            AGENTIC AI · LANGGRAPH · CUSTOMER SUPPORT
+        </p>
+
+        <h1>
+            Support Triangle AI Agent
+        </h1>
+
+        <p class="case-intro">
+            A workflow-based AI customer support agent that handles
+            order status inquiries, refund workflows, human approval
+            for high-value refunds, and customer complaint escalation.
+        </p>
+
+
+        <div class="case-highlights">
+
+            <div>
+                <strong>4</strong>
+                <span>Support Scenarios</span>
+            </div>
+
+            <div>
+                <strong>LangGraph</strong>
+                <span>Workflow Engine</span>
+            </div>
+
+            <div>
+                <strong>Human-in-the-Loop</strong>
+                <span>Refund Approval</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <main class="case-container">
+
+
+        <!-- Project Overview -->
+
+        <section class="case-section">
+
+            <h2>
+                Project Overview
+            </h2>
+
+            <p>
+                The Support Triangle AI Agent is a workflow-based
+                customer support system designed to handle common
+                support requests through a structured LangGraph
+                workflow.
+            </p>
+
+            <p>
+                The agent can determine the appropriate support path
+                based on the customer's request and execute different
+                workflows for order status, refund processing, and
+                customer complaint escalation.
+            </p>
+
+            <p>
+                The project also demonstrates a human-in-the-loop
+                workflow for higher-value refunds where the support
+                process requires human approval before proceeding.
+            </p>
+
+        </section>
+
+
+
+        <!-- Objective -->
+
+        <section class="case-section">
+
+            <h2>
+                Objective
+            </h2>
+
+            <p>
+                The objective was to build an AI customer support
+                workflow that can handle multiple support scenarios
+                while keeping important business decisions inside
+                controlled workflow paths.
+            </p>
+
+
+            <div class="support-scenarios">
+
+                <div>
+
+                    <strong>
+                        Order Status
+                    </strong>
+
+                    <span>
+                        Check whether an order exists and retrieve
+                        its current status.
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Refund Handling
+                    </strong>
+
+                    <span>
+                        Check refund eligibility and process
+                        refunds according to defined rules.
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Human Approval
+                    </strong>
+
+                    <span>
+                        Route higher-value refunds for human
+                        approval before proceeding.
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Escalation
+                    </strong>
+
+                    <span>
+                        Create an escalation ticket when a customer
+                        submits a complaint.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Architecture -->
+
+        <section class="case-section">
+
+            <h2>
+                LangGraph Architecture
+            </h2>
+
+            <p>
+                The support workflow is implemented using LangGraph,
+                with the graph controlling how customer requests move
+                through the appropriate processing and decision paths.
+            </p>
+
+            <div class="case-image">
+
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Support-Triangle-AI-Agent/main/screenshots/LangGraph_FlowDiagram.png"
+                    alt="LangGraph workflow diagram for the Support Triangle AI Agent">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Customer Interface -->
+
+        <section class="case-section">
+
+            <h2>
+                Customer Interface
+            </h2>
+
+            <p>
+                A Gradio interface provides the customer-facing
+                interaction layer. The customer enters a support
+                request and receives the agent's response through
+                the interface.
+            </p>
+
+            <p>
+                For workflows that may require human review, the
+                interface informs the customer that processing may
+                require human approval.
+            </p>
+
+            <div class="case-image">
+
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Support-Triangle-AI-Agent/main/screenshots/Screenshot_1_UI.jpeg"
+                    alt="Support Triangle AI Agent Gradio customer interface">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Order Status -->
+
+        <section class="case-section">
+
+            <h2>
+                Order Status Workflow
+            </h2>
+
+            <p>
+                The order status workflow checks the supplied order ID
+                against the available order data and returns the
+                corresponding order information when the order exists.
+            </p>
+
+            <p>
+                When the supplied order ID is not available, the agent
+                handles the unavailable-order scenario instead of
+                returning an unsupported order status.
+            </p>
+
+
+            <div class="case-images-grid">
+
+                <div class="case-image">
+
+                    <img
+                        src="https://raw.githubusercontent.com/AuxiliaV/Support-Triangle-AI-Agent/main/screenshots/Screenshot_7_OrderStatusInquiry.jpeg"
+                        alt="Successful order status inquiry">
+
+                </div>
+
+
+                <div class="case-image">
+
+                    <img
+                        src="https://raw.githubusercontent.com/AuxiliaV/Support-Triangle-AI-Agent/main/screenshots/Screenshot_8_UnavailableOrderStatus.jpeg"
+                        alt="Unavailable order status response">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Refund -->
+
+        <section class="case-section">
+
+            <h2>
+                Refund Handling
+            </h2>
+
+            <p>
+                The refund workflow first checks the customer's order
+                and refund conditions before deciding how the request
+                should be handled.
+            </p>
+
+            <div class="refund-flow">
+
+                <div>
+
+                    <strong>
+                        01. Eligibility
+                    </strong>
+
+                    <span>
+                        The order must be delivered and the refund
+                        must be initiated within 30 days.
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        02. Duplicate Check
+                    </strong>
+
+                    <span>
+                        Existing refund records are checked before
+                        initiating another refund.
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        03. Automatic Refund
+                    </strong>
+
+                    <span>
+                        Eligible refunds of $100 or less can proceed
+                        automatically.
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        04. Human Review
+                    </strong>
+
+                    <span>
+                        Eligible refunds above $100 require human
+                        approval before proceeding.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="case-image">
+
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Support-Triangle-AI-Agent/main/screenshots/Screenshot_6_DuplicateRefund.jpeg"
+                    alt="Duplicate refund handling">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Human in the Loop -->
+
+        <section class="case-section result-section">
+
+            <h2>
+                Human-in-the-Loop Workflow
+            </h2>
+
+            <p>
+                For eligible refunds above $100, the workflow pauses
+                for human approval instead of completing the refund
+                automatically.
+            </p>
+
+            <p>
+                In this portfolio prototype, the human approval is
+                handled through the support-agent development/testing
+                environment. The customer-facing Gradio interface
+                remains focused on the customer interaction.
+            </p>
+
+
+            <div class="approval-flow">
+
+                <div>
+
+                    <strong>
+                        Customer Request
+                    </strong>
+
+                    <span>
+                        Customer submits the refund request.
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Human Review
+                    </strong>
+
+                    <span>
+                        Support agent reviews the higher-value
+                        refund request.
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Decision
+                    </strong>
+
+                    <span>
+                        Approval or denial determines the next
+                        workflow path.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="case-image">
+
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Support-Triangle-AI-Agent/main/screenshots/Screenshot_3_Refund_HumanApproval_Waiting.jpeg"
+                    alt="Refund waiting for human approval">
+
+            </div>
+
+
+            <div class="case-images-grid">
+
+                <div class="case-image">
+
+                    <img
+                        src="https://raw.githubusercontent.com/AuxiliaV/Support-Triangle-AI-Agent/main/screenshots/Screenshot_5_HumanApprovalAccepted.jpeg"
+                        alt="Human approval accepted for refund">
+
+                </div>
+
+
+                <div class="case-image">
+
+                    <img
+                        src="https://raw.githubusercontent.com/AuxiliaV/Support-Triangle-AI-Agent/main/screenshots/Screenshot_4_HumanApprovalDenied.jpeg"
+                        alt="Human approval denied for refund">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Support Agent Approval -->
+
+        <section class="case-section">
+
+            <h2>
+                Support-Agent Approval Flow
+            </h2>
+
+            <p>
+                The following screenshots demonstrate the prototype
+                support-agent side of the human approval workflow,
+                including the approval request and the resulting
+                accepted or denied decision.
+            </p>
+
+
+            <div class="case-image">
+
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Support-Triangle-AI-Agent/main/screenshots/Screenshot_RefundBackendApproval.png"
+                    alt="Support-agent refund approval request">
+
+            </div>
+
+
+            <div class="case-images-grid">
+
+                <div class="case-image">
+
+                    <img
+                        src="https://raw.githubusercontent.com/AuxiliaV/Support-Triangle-AI-Agent/main/screenshots/Screenshot_RefundBackendApprovalAccepted.png"
+                        alt="Support-agent refund approval accepted">
+
+                </div>
+
+
+                <div class="case-image">
+
+                    <img
+                        src="https://raw.githubusercontent.com/AuxiliaV/Support-Triangle-AI-Agent/main/screenshots/Screenshot_RefundBackendApprovalDenied.png"
+                        alt="Support-agent refund approval denied">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Escalation -->
+
+        <section class="case-section">
+
+            <h2>
+                Customer Complaint Escalation
+            </h2>
+
+            <p>
+                Customer complaints are routed to an escalation
+                workflow that creates an escalation ticket rather
+                than attempting to resolve the complaint through
+                the standard order or refund paths.
+            </p>
+
+            <div class="case-image">
+
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Support-Triangle-AI-Agent/main/screenshots/Screenshot_2_Escalation.jpeg"
+                    alt="Customer complaint escalation response">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Technologies -->
+
+        <section class="case-section">
+
+            <h2>
+                Technologies Used
+            </h2>
+
+            <div class="technique-list">
+
+                <span>Python</span>
+
+                <span>LangGraph</span>
+
+                <span>LangChain</span>
+
+                <span>OpenAI</span>
+
+                <span>Gradio</span>
+
+                <span>Pandas</span>
+
+                <span>Pydantic</span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Project Workflow -->
+
+        <section class="case-section">
+
+            <h2>
+                Project Workflow
+            </h2>
+
+            <div class="workflow">
+
+                <div>
+                    01
+                    <br>
+                    <span>
+                        Customer Request
+                    </span>
+                </div>
+
+                <div>
+                    02
+                    <br>
+                    <span>
+                        Request Classification
+                    </span>
+                </div>
+
+                <div>
+                    03
+                    <br>
+                    <span>
+                        Workflow Routing
+                    </span>
+                </div>
+
+                <div>
+                    04
+                    <br>
+                    <span>
+                        Tool Execution
+                    </span>
+                </div>
+
+                <div>
+                    05
+                    <br>
+                    <span>
+                        Human Approval
+                    </span>
+                </div>
+
+                <div>
+                    06
+                    <br>
+                    <span>
+                        Customer Response
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Testing -->
+
+        <section class="case-section">
+
+            <h2>
+                Testing
+            </h2>
+
+            <p>
+                The implemented workflow was tested across the major
+                customer support scenarios supported by the project.
+            </p>
+
+
+            <table class="testing-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Scenario
+                        </th>
+
+                        <th>
+                            Expected Behavior
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Valid Order ID
+                        </td>
+
+                        <td>
+                            Retrieve order status
+                        </td>
+
+                        <td>
+                            Tested
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Unavailable Order ID
+                        </td>
+
+                        <td>
+                            Handle unavailable order
+                        </td>
+
+                        <td>
+                            Tested
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Duplicate Refund
+                        </td>
+
+                        <td>
+                            Detect existing refund
+                        </td>
+
+                        <td>
+                            Tested
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Refund ≤ $100
+                        </td>
+
+                        <td>
+                            Automatic refund workflow
+                        </td>
+
+                        <td>
+                            Tested
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Refund &gt; $100
+                        </td>
+
+                        <td>
+                            Human approval workflow
+                        </td>
+
+                        <td>
+                            Tested
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Customer Complaint
+                        </td>
+
+                        <td>
+                            Create escalation ticket
+                        </td>
+
+                        <td>
+                            Tested
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+
+        <!-- Project Structure -->
+
+        <section class="case-section">
+
+            <h2>
+                Project Structure
+            </h2>
+
+            <div class="project-structure">
+
+<pre>Support-Triangle-LangGraph-Agent/
+│
+├── tools.py
+├── graph_flow.py
+├── deployment.py
+│
+├── requirements.txt
+├── .env.example
+├── .gitignore
+├── README.md
+│
+└── screenshots/
+    ├── LangGraph_FlowDiagram.png
+    ├── Screenshot_1_UI.jpeg
+    ├── Screenshot_2_Escalation.jpeg
+    ├── Screenshot_3_Refund_HumanApproval_Waiting.jpeg
+    ├── Screenshot_4_HumanApprovalDenied.jpeg
+    ├── Screenshot_5_HumanApprovalAccepted.jpeg
+    ├── Screenshot_6_DuplicateRefund.jpeg
+    ├── Screenshot_7_OrderStatusInquiry.jpeg
+    ├── Screenshot_8_UnavailableOrderStatus.jpeg
+    ├── Screenshot_RefundBackendApproval.png
+    ├── Screenshot_RefundBackendApprovalAccepted.png
+    └── Screenshot_RefundBackendApprovalDenied.png</pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Key Learning -->
+
+        <section class="case-section">
+
+            <h2>
+                Key Learning
+            </h2>
+
+            <p>
+                This project provided hands-on experience in designing
+                a structured AI-agent workflow using LangGraph,
+                integrating tools into an agentic system, handling
+                conditional business logic, and implementing a
+                human-in-the-loop approval path.
+            </p>
+
+            <p>
+                It also demonstrated how a customer-facing interface
+                can be separated from support-agent approval logic
+                within a workflow-based AI application.
+            </p>
+
+        </section>
+
+
+
+        <!-- Limitations -->
+
+        <section class="case-section">
+
+            <h2>
+                Project Limitations
+            </h2>
+
+            <p>
+                This project is a portfolio prototype and is not
+                presented as a production customer-support system.
+            </p>
+
+            <p>
+                The human approval mechanism currently uses the
+                support-agent development/testing environment rather
+                than a dedicated production support-agent dashboard.
+            </p>
+
+            <p>
+                The order and refund data used by the workflow are
+                sample project data rather than live production
+                customer records.
+            </p>
+
+        </section>
+
+
+
+        <!-- Key Takeaway -->
+
+        <section class="case-section takeaway">
+
+            <h2>
+                Key Takeaway
+            </h2>
+
+            <p>
+                This project demonstrates how LangGraph can be used
+                to build a structured customer-support agent with
+                conditional workflows, tool execution, refund
+                business rules, human approval, and escalation
+                handling in a single AI-agent application.
+            </p>
+
+        </section>
+
+
+
+        <!-- GitHub -->
+
+        <section class="case-cta">
+
+            <h2>
+                Explore the Project
+            </h2>
+
+            <p>
+                View the complete Python implementation, workflow
+                logic, project documentation, screenshots, and
+                supporting files on GitHub.
+            </p>
+
+            <!-- Replace with the actual GitHub repository URL -->
+
+            <a
+                href="https://github.com/AuxiliaV/Support-Triangle-AI-Agent"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="github-button large">
+                View Project on GitHub →
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Auxilia V. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
