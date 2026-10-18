@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Invoice Processing Automation | Auxilia V</title>
+
+    <link rel="stylesheet" href="invoice-automation.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="case-nav">
+
+        <a href="index.html" class="back-link">
+            ← Back to Portfolio
+        </a>
+
+        <a
+            href="https://github.com/AuxiliaV/Invoice-Processing-Automation"
+            target="_blank"
+            class="github-button">
+            View on GitHub
+        </a>
+
+    </nav>
+
+
+    <!-- Hero -->
+    <header class="case-hero">
+
+        <p class="case-type">
+            WORKFLOW AUTOMATION · N8N
+        </p>
+
+        <h1>Invoice Processing Automation</h1>
+
+        <p class="case-intro">
+            An AI-powered n8n workflow that reads invoice PDFs from an email
+            inbox, extracts structured data with an LLM, validates it against
+            business rules, and logs it to a spreadsheet — flagging anything
+            that needs a human's attention along the way.
+        </p>
+
+        <div class="case-highlights">
+
+            <div>
+                <strong>17</strong>
+                <span>Workflow Nodes</span>
+            </div>
+
+            <div>
+                <strong>4</strong>
+                <span>Validation Checks</span>
+            </div>
+
+            <div>
+                <strong>2</strong>
+                <span>Linked Workflows</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="case-container">
+
+
+        <!-- Project Overview & Objectives -->
+        <section class="case-section">
+
+            <h2>Project Overview</h2>
+
+            <p>
+                Small and mid-sized businesses commonly receive vendor invoices
+                by email as PDF attachments. Someone on the team has to open
+                each email, read the PDF, and manually type the vendor,
+                invoice number, date, and amount into a spreadsheet for
+                bookkeeping — a process that is slow, error-prone, and doesn't
+                scale as the business grows.
+            </p>
+
+            <p>
+                This project turns that manual process into an automated
+                pipeline: the system reads and logs every invoice on its own,
+                and only involves a human when something looks uncertain or
+                risky.
+            </p>
+
+        </section>
+
+
+        <!-- Objectives -->
+        <section class="case-section">
+
+            <h2>Objectives & Key Features</h2>
+
+            <p>
+                The workflow was built around four core objectives, each
+                addressed by a dedicated check in the pipeline:
+            </p>
+
+            <div class="alert-categories">
+
+                <div>
+                    <strong>Missing Fields</strong>
+                    <span>Catch incomplete extractions</span>
+                </div>
+
+                <div>
+                    <strong>Scanned PDFs</strong>
+                    <span>Flag unreadable invoices</span>
+                </div>
+
+                <div>
+                    <strong>Duplicates</strong>
+                    <span>Prevent double logging</span>
+                </div>
+
+                <div>
+                    <strong>High Amount</strong>
+                    <span>Route for human review</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Workflow Architecture -->
+        <section class="case-section">
+
+            <h2>Workflow Architecture</h2>
+
+            <p>
+                The pipeline moves each invoice through a trigger, an
+                extraction stage, an AI structuring step, a three-branch
+                validation chain, and finally a logging and alerting stage.
+                A separate, linked workflow listens for failures anywhere in
+                the main pipeline and raises an alert if one occurs.
+            </p>
+
+            <div class="technique-list">
+                <span>Email Trigger (IMAP)</span>
+                <span>Code (JavaScript)</span>
+                <span>Extract from File</span>
+                <span>Information Extractor (AI)</span>
+                <span>IF / Conditional Routing</span>
+                <span>Google Sheets</span>
+                <span>Slack</span>
+                <span>Error Trigger</span>
+            </div>
+
+            <div class="case-image">
+
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Invoice-Processing-Automation/main/screenshots/9.workflow_architecture_node_sequence.png"
+                    alt="Workflow architecture diagram for the Invoice Processing Automation">
+
+            </div>
+
+
+            <p class="highlight-text">
+                Every incoming email can carry multiple PDF attachments. A
+                Code node normalizes these into one item per invoice before
+                anything else runs, so every later node — extraction,
+                validation, logging — processes each invoice independently,
+                regardless of how many arrived together.
+            </p>
+
+        </section>
+
+
+        <!-- Email Intake and PDF Attachment Processing -->
+        <section class="case-section">
+
+            <h2>Email Intake & PDF Attachment Processing</h2>
+
+            <p>
+                New invoices are picked up directly from a dedicated inbox
+                folder, with attachments normalized into a consistent shape
+                before text extraction begins.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <strong>IMAP</strong>
+                    <span>Trigger Protocol</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>0–N</strong>
+                    <span>Attachments / Email</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>1 per PDF</strong>
+                    <span>Item Normalization</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>PDF</strong>
+                    <span>Supported Format</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI-Powered Invoice Data Extraction -->
+        <section class="case-section">
+
+            <h2>AI-Powered Invoice Data Extraction</h2>
+
+            <p>
+                Extracted PDF text is passed to an LLM-backed Information
+                Extractor node, configured with a fixed schema so every
+                invoice returns the same structured fields.
+            </p>
+
+            <div class="technique-list">
+                <span>vendor_name</span>
+                <span>invoice_number</span>
+                <span>invoice_date</span>
+                <span>due_date</span>
+                <span>subtotal</span>
+                <span>tax_amount</span>
+                <span>total_amount</span>
+                <span>currency</span>
+            </div>
+
+            <p class="highlight-text">
+                Itemized line items were deliberately left out of the schema.
+                Nested, multi-level fields are where smaller models are least
+                reliable — the flat-field pipeline was proven solid first,
+                with line-item extraction scoped as a future addition rather
+                than risking silently wrong data in the first version.
+            </p>
+
+        </section>
+
+
+        <!-- Validation, Duplicate Detection, and Approval Rules -->
+        <section class="case-section">
+
+            <h2>Validation, Duplicate Detection & Approval Rules</h2>
+
+            <p>
+                Every invoice passes through four checks before it's logged.
+                Business rules — the approval threshold, the required fields,
+                what counts as a duplicate — are enforced in code, not left
+                to the AI model's judgment, so they can never be reasoned
+                around.
+            </p>
+
+            <p class="highlight-text">
+                Invoices above a configurable Amount threshold are still
+                logged automatically, but flagged with a
+                <code>need_review</code> status and routed to a Slack alert
+                — the pipeline never blocks a valid invoice, it just asks a
+                human to glance at the risky ones.
+            </p>
+
+        </section>
+
+
+        <!-- Slack Notifications and Google Sheets Logging -->
+        <section class="case-section">
+
+            <h2>Slack Notifications & Google Sheets Logging</h2>
+
+            <p>
+                Every invoice ends in exactly one of four outcomes, each
+                routed to the right destination:
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <strong>Auto-Logged</strong>
+                    <span>Sheets only</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Need Review</strong>
+                    <span>Sheets + Slack alert</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Duplicate</strong>
+                    <span>Slack alert only</span>
+                </div>
+
+                <div class="info-card">
+                    <strong>Invalid / Scanned</strong>
+                    <span>Slack alert only</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Validation / Demo -->
+        <section class="case-section">
+
+            <h2>Workflow Demo</h2>
+
+
+            <div class="case-image">
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Invoice-Processing-Automation/main/screenshots/1.workflow.png"
+                    alt="Full workflow canvas">
+
+                <p>
+                    <strong>Full workflow canvas</strong>
+                </p>
+            </div>
+
+            <div class="case-image">
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Invoice-Processing-Automation/main/screenshots/10.error_handler_workflow.png"
+                    alt="Error Handler workflow canvas">
+
+                <p>
+                    <strong>Error Handler workflow canvas</strong>
+                </p>
+
+            </div>
+
+            <div class="case-image">
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Invoice-Processing-Automation/main/screenshots/5.duplicate_alert.png"
+                    alt="A Slack alert example (duplicate)">
+
+                <p>
+                    <strong>A Slack alert example (duplicate)</strong>
+                </p>
+
+            </div>
+
+
+            <div class="case-image">
+                <img
+                    src="https://raw.githubusercontent.com/AuxiliaV/Invoice-Processing-Automation/main/screenshots/8.invoice_log.png"
+                    alt="The Google Sheets log with a few processed rows">
+
+                <p>
+                    <strong>The Google Sheets log with a few processed rows</strong>
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+
+        <!-- Testing Scenarios and Error Handling -->
+        <section class="case-section">
+
+            <h2>Testing Scenarios & Error Handling</h2>
+
+            <p>
+                Each branch of the workflow was tested deliberately, not just
+                the default path — including forcing a failure to confirm the
+                linked error-handling workflow actually fires.
+            </p>
+
+            <div class="scenario-table-wrap">
+                <table class="scenario-table">
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Expected Behavior</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>New invoice, under threshold</td>
+                            <td>Auto-logged, no alert</td>
+                            <td>✅ Pass</td>
+                        </tr>
+                        <tr>
+                            <td>New invoice, above threshold</td>
+                            <td>Logged as need_review, Slack alert sent</td>
+                            <td>✅ Pass</td>
+                        </tr>
+                        <tr>
+                            <td>Missing required field</td>
+                            <td>Routed to alert, not logged</td>
+                            <td>✅ Pass</td>
+                        </tr>
+                        <tr>
+                            <td>Email with 2 new invoices</td>
+                            <td>Both processed independently</td>
+                            <td>✅ Pass</td>
+                        </tr>
+                        <tr>
+                            <td>1 new + 1 duplicate invoice</td>
+                            <td>New logged, duplicate alerted</td>
+                            <td>✅ Pass</td>
+                        </tr>
+                        <tr>
+                            <td>2 duplicate invoices</td>
+                            <td>Both alerted, neither logged</td>
+                            <td>✅ Pass</td>
+                        </tr>
+                        <tr>
+                            <td>Scanned / image-based PDF</td>
+                            <td>Routed to manual review, skips AI step</td>
+                            <td>✅ Pass</td>
+                        </tr>
+                        <tr>
+                            <td>Forced node failure</td>
+                            <td>Error-handler workflow fires, Slack alert sent</td>
+                            <td>✅ Pass</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+
+        <!-- Technologies Used -->
+        <section class="case-section">
+
+            <h2>Technologies Used</h2>
+
+            <div class="technique-list">
+                <span>n8n</span>
+                <span>Docker</span>
+                <span>Gmail (IMAP)</span>
+                <span>OpenAI gpt-4o-mini</span>
+                <span>Google Sheets API</span>
+                <span>Slack API</span>
+                <span>JavaScript (Code nodes)</span>
+            </div>
+
+        </section>
+
+
+        <!-- Project Workflow -->
+        <section class="case-section">
+
+            <h2>Project Workflow</h2>
+
+            <div class="workflow">
+
+                <div>01<br><span>Email Intake</span></div>
+
+                <div>02<br><span>PDF Extraction</span></div>
+
+                <div>03<br><span>AI Structuring</span></div>
+
+                <div>04<br><span>Validation</span></div>
+
+                <div>05<br><span>Logging</span></div>
+
+                <div>06<br><span>Alerting</span></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Key Takeaway -->
+        <section class="case-section takeaway">
+
+            <h2>Key Takeaway</h2>
+
+            <p>
+                Building this project meant going from zero prior Docker and
+                n8n experience to a working, multi-branch automation pipeline
+                with real error handling — and debugging two genuinely subtle
+                bugs along the way, including a silent data-nesting mismatch
+                that produced no error at all, just quietly wrong results.
+                Tracking it down took targeted debug fields and a methodical,
+                step-by-step process of elimination, not guesswork.
+            </p>
+
+        </section>
+
+
+        <!-- GitHub -->
+        <section class="case-cta">
+
+            <h2>Explore the Project</h2>
+
+            <p>
+                View the exported workflow files, setup guide, and full
+                project documentation on GitHub.
+            </p>
+
+            <a
+                href="https://github.com/AuxiliaV/Invoice-Processing-Automation"
+                target="_blank"
+                class="github-button large">
+                View Project on GitHub →
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Auxilia V. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
